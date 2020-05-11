@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $("input").keyup(function(){
+    var txt = $("input").val();
+    $.post("Names", {suggest: txt}, function(result){
+      $("span").html(result);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<h2> Ajax Post Project :D</h2>
+<p>Start typing a name in the input field below:</p>
+First name:
+
+<input type="text">
+
+<p>Suggestions: <span></span></p>
+<p>(<a href="Names.txt" target="_blank">Names</a>)</p>
+
+</body>
+</html>
